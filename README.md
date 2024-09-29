@@ -1,5 +1,4 @@
 # rile-cli
-## A **R**ust F**ile** CLI tool that enables several file related CLI functions using natural language.
 A CLI tool written in Rust that allows users to query files using natural language.
 
 ## Installation
