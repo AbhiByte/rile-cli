@@ -7,7 +7,7 @@ A CLI tool written in Rust that allows users to query files using natural langua
 
 If you have Rust installed, you can install Rile directly from the source:
 
-`cargo install --git https://github.com/AbhiByte/rile.git`
+`cargo install --git https://github.com/AbhiByte/rile-cli.git`
 
 ### Binary releases
 
