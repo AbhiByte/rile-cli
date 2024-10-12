@@ -21,6 +21,11 @@ Check the [releases page](https://github.com/AbhiByte/rile-cli/releases) for pre
 For example, to search for all PDF files:
 `rile --file pdf`
 
+You can also specifiy multiple file extensions:
+`rile --file .pdf .py .yml`
+
+Tip: Both `.docx` and `docx` work!
+
 ## License
 
 This project is licensed under:
