@@ -1,16 +1,19 @@
 use clap::Parser;
 use std::fs;
 use std::path::Path;
+use std::io::Read;
 
 
 #[derive(Parser, Debug)]
 #[command(version, about, long_about = None)]
 struct Args {
-    /// --file to search for a specific file
-    /// --quote for querying using natural language.
+    /// File extensions to search for (e.g., pdf txt rs)
     #[arg(short, long, num_args = 1.., value_delimiter = ' ')]
-    file: Vec<String>,
-    quote: String,
+    file: Option<Vec<String>>,
+
+    /// Quote to search for in files (optional)
+    #[arg(short, long)]
+    quote: Option<String>,
 }
 
 fn main() {
