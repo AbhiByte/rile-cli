@@ -6,9 +6,11 @@ use std::path::Path;
 #[derive(Parser, Debug)]
 #[command(version, about, long_about = None)]
 struct Args {
-    /// File extensions to search for (e.g., pdf txt rs)
+    /// --file to search for a specific file
+    /// --quote for querying using natural language.
     #[arg(short, long, num_args = 1.., value_delimiter = ' ')]
     file: Vec<String>,
+    quote: String,
 }
 
 fn main() {
