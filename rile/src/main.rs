@@ -22,12 +22,28 @@ fn main() {
     let current_directory = std::env::current_dir().expect("Failed to get current directory");
     println!("Current directory: {}", current_directory.display());
     
-    let files = search_files(&current_directory, &args.file);
+    let files = if let Some(quote) = &args.quote {
+        println!("Searching for files containing: \"{}\"", quote);
+        search_quote(&current_directory, args.file.as_deref(), quote)
+    } else if let Some(extensions) = &args.file {
+        search_files(&current_directory, extensions)
+    } else {
+        println!("Please specify either --file or --quote");
+        return;
+    };
 
     if files.is_empty() {
-        println!("No files with extensions {:?} found", args.file);
+        if args.quote.is_some() {
+            println!("No files containing the specified quote found");
+        } else if let Some(extensions) = &args.file {
+            println!("No files with extensions {:?} found", extensions);
+        }
     } else {
-        println!("Files with extensions {:?}:", args.file);
+        if args.quote.is_some() {
+            println!("Files containing the specified quote:");
+        } else if let Some(extensions) = &args.file {
+            println!("Files with extensions {:?}:", extensions);
+        }
         for file in files {
             println!("{}", file.display());
         }
